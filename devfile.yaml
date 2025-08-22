@@ -1,0 +1,13 @@
+schemaVersion: 2.2.2
+metadata:
+  name: sre-sample
+components:
+  - name: tools
+    container:
+      image: quay.io/vflorent/devspaces-sre:latest
+      memoryLimit: '2Gi'
+      memoryRequest: '1Gi'
+      cpuLimit: '1'
+      cpuRequest: '0.5'
+      mountSources: true
+      
