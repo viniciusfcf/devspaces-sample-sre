@@ -22,12 +22,8 @@ components:
       volumeMounts:
         - name: prometheus-data
           path: /prometheus
-        - name: prometheus-config
-          path: /etc/prometheus
+          
   - name: prometheus-data
-    volume:
-      size: 1Gi
-  - name: prometheus-config
     volume:
       size: 1Gi
 
@@ -40,16 +36,3 @@ components:
           targetPort: 3000
           exposure: public
           protocol: http
-          
-commands:
-  - id: copyconfig
-    exec:
-      component: tools
-      commandLine: "cp prometheus.yml /etc/prometheus/prometheus.yml"
-      workingDir: /projects/devspaces-sample-sre
-      group:
-        kind: build
-
-events:
-  postStart:
-  - copyconfig
