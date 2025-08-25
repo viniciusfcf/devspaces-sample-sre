@@ -10,4 +10,23 @@ components:
       cpuLimit: '1'
       cpuRequest: '0.5'
       mountSources: true
+  - name: prometheus
+    container:
+      image: prom/prometheus:latest
+      memoryLimit: 1Gi
+      endpoints:
+        - name: prometheus
+          targetPort: 9090
+          exposure: public
+          protocol: http
+
+  - name: grafana
+    container:
+      image: grafana/grafana:latest
+      memoryLimit: 1Gi
+      endpoints:
+        - name: grafana
+          targetPort: 3000
+          exposure: public
+          protocol: http
       
