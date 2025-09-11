@@ -28,18 +28,18 @@ components:
           protocol: tcp
           targetPort: 2475
 
-  - name: prometheus
-    container:
-      image: prom/prometheus:latest
-      memoryLimit: 1Gi
-      endpoints:
-        - name: prometheus
-          targetPort: 9090
-          exposure: public
-          protocol: http
-      volumeMounts:
-        - name: prometheus-data
-          path: /prometheus
+  # - name: prometheus
+  #   container:
+  #     image: prom/prometheus:latest
+  #     memoryLimit: 1Gi
+  #     endpoints:
+  #       - name: prometheus
+  #         targetPort: 9090
+  #         exposure: public
+  #         protocol: http
+  #     volumeMounts:
+  #       - name: prometheus-data
+  #         path: /prometheus
 
   - name: prometheus-data
     volume:
